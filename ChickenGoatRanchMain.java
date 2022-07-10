@@ -14,9 +14,9 @@ public class ChickenGoatRanchMain {
         if(legs%2 != 0)
             System.out.println("Error: Anatomically Impossible");
         chickenCount = chickens(heads, legs); //needed to make function static
-        if (chickenCount == 0) return;
+        if (chickenCount == -1) return;
         goatCount =  goats(heads, legs);
-        if(goatCount == 0) return;
+        if(goatCount == -1) return;
         if(heads != chickenCount + goatCount)
             System.out.println("Error: Anatomically Impossible");
         if(legs != 2*chickenCount + 4*goatCount)
@@ -29,8 +29,9 @@ public class ChickenGoatRanchMain {
         int chickens = 2*heads - legs/2;
         if(2*heads < legs/2) {
             System.out.println("Anatomically Impossible");
-            chickens = 0;
+            chickens = -1;
         }
+        System.out.println(chickens);
         return chickens;
     }
 
@@ -38,8 +39,9 @@ public class ChickenGoatRanchMain {
         int goats = legs/2 - heads;
         if(legs/2 < heads) {
             System.out.println("Anatomically Impossible");
-            goats = 0;
+            goats = -1;
         }
+        System.out.println(goats);
         return goats;
     }
 }
